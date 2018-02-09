@@ -27,20 +27,47 @@ int main(int argc, char *argv[])
     char buffer[BUFFER_LEN] = { 0 };
     char command[BUFFER_LEN] = { 0 };
     char arg[BUFFER_LEN] = { 0 };
+    unsigned long i;
 
     // Parse the commands provided using argc and argv
-
+	
     // Perform an infinite loop getting command input from users
+	//char s[256];
+	//strcpy(s, "one two three");
+	//char* token = strtok(s, " ");
+	//while (token) {
+    	//printf("token: %s\n", token);
+    	//token = strtok(NULL, " ");
+	//}
+
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
         // Perform string tokenization to get the command and argument
-
+	char* token = strtok(buffer, "\n");
+	for (i=0; i < sizeof(token);i++){
+		command[i] = token[i];
+	}
+	printf("command = %s",command);
+	//scanf("%s %d",command,arg);
         // Check the command and execute the operations for each command
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
             // your code here
         }
+	
+	if (strcmp(command,"help") == 0)
+	{
+		printf("helpping");
+		int c;
+		FILE *file;
+		file = fopen("README","r");
+		if (file){
+			while((c=getc(file)) !=EOF)
+				putchar(c);
+			fclose(file);		
+		}
+	}
 
         // other commands here...
         
