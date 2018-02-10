@@ -90,11 +90,14 @@ int main(int argc, char *argv[])
 	else if (strcmp(command,"environ") == 0){
 		int i = 1;
   		char *s = *environ;
-
   		for (; s; i++) {
     			printf("%s\n", s);
     			s = *(environ+i);
   		}
+	}
+	else if (strcmp(command,"echo") == 0){
+		char* string = strtok(NULL, "\n");
+		printf("%s %s\n",arg,string);
 	}
 	
 	else if (strcmp(command,"help") == 0)
