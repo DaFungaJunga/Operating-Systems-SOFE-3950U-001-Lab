@@ -38,12 +38,12 @@ int main(int argc, char *argv[])
     {
         // Perform string tokenization to get the command and argument
 	char* token = strtok(buffer, " \n");
-	for (i=0; i < sizeof(token);i++){
+	for (i=0; i < sizeof(buffer);i++){
 		command[i] = token[i];
 	}
 	token = strtok(NULL," \n");
 	if (token != NULL){
-		for (i=0; i < sizeof(token);i++){
+		for (i=0; i < sizeof(buffer);i++){
 		arg[i] = token[i];
 		}
 	}
@@ -54,19 +54,20 @@ int main(int argc, char *argv[])
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
-		if(arg ==NULL){
-			char cwd[1024];
+		char cwd[1024];
+		if(strcmp(arg, "") == 0){
 			if (getcwd(cwd, sizeof(cwd)) != NULL)
        				fprintf(stdout, "Current working dir: %s\n", cwd);
-									
+				
 		}
 		
 		else{
 			int result = 0;
-			result = chdir(argv[1]);
-  
+			result = chdir(arg);
   			if(result == 0){
-    				printf("directory changed\n");
+    				if (getcwd(cwd, sizeof(cwd)) != NULL)
+       					fprintf(stdout, "Current working dir: %s\n", cwd);
+
 			}
   
   			else{
@@ -75,7 +76,7 @@ int main(int argc, char *argv[])
   		}	
         }
 	
-	if (strcmp(command,"help") == 0)
+	else if (strcmp(command,"help") == 0)
 	{
 		int c;
 		FILE *file;
