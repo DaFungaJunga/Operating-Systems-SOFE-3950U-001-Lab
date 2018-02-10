@@ -31,9 +31,17 @@ int main(int argc, char *argv[])
     char command[BUFFER_LEN] = { 0 };
     char arg[BUFFER_LEN] = { 0 };
     unsigned long i;
-
+    char path[1024];
     // Parse the commands provided using argc and argv
-	
+    if (getcwd(path, sizeof(path)) != NULL){
+	char com[1024]= {"shell="};
+	char str[2048]= {};
+	char myshell[1024] ={"/myshell"};	
+	strcat(str,com);
+	strcat(str,path);
+	strcat(str,myshell);
+ 	putenv(str);
+	}
     // Perform an infinite loop getting command input from users
 
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
