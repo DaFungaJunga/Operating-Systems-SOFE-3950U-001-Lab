@@ -14,11 +14,13 @@
 #include "utility.h"
 #include "myshell.h"
 #include <unistd.h>
+#include <curses.h> //need to install
 
 // Put macros or constants here using #define
 #define BUFFER_LEN 256
 
 // Put global environment variables here
+extern char **environ;
 
 // Define functions declared in myshell.h here
 
@@ -75,6 +77,25 @@ int main(int argc, char *argv[])
     			}
   		}	
         }
+	else if (strcmp(command,"clr") == 0){
+		/*initscr(); 
+		clear();
+		refresh();
+		endwin();*/
+		//above not working
+		int n;
+    		for (n = 0; n < 10; n++)
+      			printf( "\n\n\n\n\n\n\n\n\n\n" );
+	}
+	else if (strcmp(command,"environ") == 0){
+		int i = 1;
+  		char *s = *environ;
+
+  		for (; s; i++) {
+    			printf("%s\n", s);
+    			s = *(environ+i);
+  		}
+	}
 	
 	else if (strcmp(command,"help") == 0)
 	{
