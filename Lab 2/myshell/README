@@ -24,3 +24,5 @@ pause
 
 quit      
 - Quit the shell.
+
+To run the program, you must install ncurses with "sudo apt-get install libncurses5-dev"
