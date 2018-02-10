@@ -13,6 +13,7 @@
 #include <string.h>
 #include "utility.h"
 #include "myshell.h"
+#include <unistd.h>
 
 // Put macros or constants here using #define
 #define BUFFER_LEN 256
@@ -53,7 +54,25 @@ int main(int argc, char *argv[])
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
-            // your code here
+		if(arg ==NULL){
+			char cwd[1024];
+			if (getcwd(cwd, sizeof(cwd)) != NULL)
+       				fprintf(stdout, "Current working dir: %s\n", cwd);
+									
+		}
+		
+		else{
+			int result = 0;
+			result = chdir(argv[1]);
+  
+  			if(result == 0){
+    				printf("directory changed\n");
+			}
+  
+  			else{
+    				 printf("Couldn't change directory to %s\n", arg ); 
+    			}
+  		}	
         }
 	
 	if (strcmp(command,"help") == 0)
