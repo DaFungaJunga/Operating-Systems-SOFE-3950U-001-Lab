@@ -14,7 +14,7 @@
 #include "utility.h"
 #include "myshell.h"
 #include <unistd.h>
-#include <curses.h> //need to install
+//#include <curses.h> need to install
 
 // Put macros or constants here using #define
 #define BUFFER_LEN 256
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 		clear();
 		refresh();
 		endwin();*/
-		//above not working
+		//above not working proper and uses curses
 		int n;
     		for (n = 0; n < 10; n++)
       			printf( "\n\n\n\n\n\n\n\n\n\n" );
