@@ -43,9 +43,16 @@ int main(int argc, char *argv[])
  	putenv(str);
 	}
     // Perform an infinite loop getting command input from users
-
+	char cwd[1024];
+	getcwd(cwd, sizeof(cwd));
+       	//fprintf(stdout, "%s\n", cwd);
+	printf("%s:$ ", cwd);
     while (fgets(buffer, BUFFER_LEN, stdin) != NULL)
     {
+	char cwd[1024];
+	getcwd(cwd, sizeof(cwd));
+       	//fprintf(stdout, "%s\n", cwd);
+	printf("%s\n", cwd);
         // Perform string tokenization to get the command and argument
 	char* token = strtok(buffer, " \n");
 	for (i=0; i < sizeof(buffer);i++){
@@ -64,7 +71,6 @@ int main(int argc, char *argv[])
         // cd command -- change the current directory
         if (strcmp(command, "cd") == 0)
         {
-		char cwd[1024];
 		if(strcmp(arg, "") == 0){
 			if (getcwd(cwd, sizeof(cwd)) != NULL)
        				fprintf(stdout, "Current working dir: %s\n", cwd);
@@ -135,6 +141,9 @@ int main(int argc, char *argv[])
         }
 	memset(command,0,255);
 	memset(arg,0,255);
+	getcwd(cwd, sizeof(cwd));
+       	//fprintf(stdout, "%s\n", cwd);
+	printf("%s$ ", cwd);
     }
     return EXIT_SUCCESS;
 }
