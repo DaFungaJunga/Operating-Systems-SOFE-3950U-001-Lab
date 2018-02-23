@@ -33,3 +33,4 @@ Quit the shell.
 I/O Redirection
 ---------------
 Supports i/o-redirection on either or both ```stdin``` and/or ```stdout``` using ```<```, ```>```, or ```>>``` arguements.
+(NOTE - shell doesn't resume function after ```stdout```, need to exit shell with ^C)
