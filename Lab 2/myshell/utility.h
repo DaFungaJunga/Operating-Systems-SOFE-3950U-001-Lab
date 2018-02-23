@@ -12,4 +12,14 @@
 // extern keyword such as in the following example:
 // extern void display_help(void);
 
+extern void changeDir(char args[10][256], int numTok);
+extern void showDir(char args[10][256], int numTok);
+extern void environment();
+extern void echo(char args[10][256], int numTok);
+extern void help();
+extern void pauseOps();
+extern void exec(char args[10][256], int numTok);
+extern int commands(char command[256], char args[10][256], int numTok);
+extern int setenv(const char *envname, const char *envval, int overwrite);
+
 #endif /* UTILITY_H_ */
