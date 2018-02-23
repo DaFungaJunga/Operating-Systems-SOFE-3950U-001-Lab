@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2017, <GROUP MEMBERS>
  * All rights reserved.
- * 
+ *
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,7 +80,7 @@ extern void echo(char args[10][256], int numTok){
 extern void help(){
     int c;
     FILE *file;
-    file = fopen("README", "r");
+    file = fopen("README.md", "r");
     if (file){
         while ((c = getc(file)) != EOF)
             putchar(c);
@@ -107,7 +107,7 @@ extern void exec(char args[10][256], int numTok){
         char arguements[5][256];
         char *token;
         fp = fopen(args[1], "r");
-        
+
         while(fgets(line, 256, fp) != 0){
             numTok = 0;
             for(token = strtok(line, " \n\0\r"); NULL != token; token = strtok(NULL, " \n\0\r")){
@@ -177,7 +177,7 @@ extern int commands(char command[256], char args[10][256], int numTok){
     // Check the command and execute the operations for each command
     // cd command -- change the current directory
 
-    
+
     for (int i = 0; i < numTok; i++){
         if (strcmp(args[i], "<") == 0){
             freopen(args[i+1], "r", stdin);
@@ -196,7 +196,7 @@ extern int commands(char command[256], char args[10][256], int numTok){
             fclose(stdout);
             return 0;
         }
-        
+
     }
 
     int out = outputCommand(command, args, numTok);
