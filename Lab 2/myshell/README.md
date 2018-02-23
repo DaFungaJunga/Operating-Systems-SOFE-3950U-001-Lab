@@ -1,7 +1,7 @@
 # Instructions
 
-Enter 'make' into terminal to compile code.
-Enter './myshell' to run myshell
+Enter ```make``` into terminal to compile code.
+Enter ```./myshell``` to run myshell
 
 
 # User Help Functions
