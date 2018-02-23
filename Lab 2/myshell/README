@@ -1,6 +1,11 @@
-User Help Functions
---------------------------
+Instructions
+------------
+Enter 'make' into terminal to compile code.
+Enter './myshell' to run myshell
 
+
+User Help Functions
+-------------------
 cd <directory>
 - Change the current default directory to <directory>. If the <directory> argument is not present, report the current directory. If the directory does not exist an appropriate error should be reported. This command should also change the PWD environment variable.
 
@@ -25,4 +30,6 @@ pause
 quit      
 - Quit the shell.
 
-To run the program, you must install ncurses with "sudo apt-get install libncurses5-dev"
+I/O Redirection
+---------------
+Supports i/o-redirection on either or both stdin and/or stdout using '<', '>', or '>>' arguements.
