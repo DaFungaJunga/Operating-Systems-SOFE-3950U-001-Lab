@@ -45,14 +45,15 @@ int search(int *arr)
 void *threeByThree(void *i){
 	//0-8:TL,TM,TR,ML,MM,MR,BL,BM,BR
 	int grid = *((int*)i);
-	int presentNum[9];
+	int presentNum[9]={0,0,0,0,0,0,0,0,0};
 
 	int row = floor(grid/3);
 	int column= 3*(grid%3);
-	printf("grid:%d row:%d column:%d\n",grid,row,column);
+
 
 	for (int x=0;x<9;x++){
 		//printf("puzzleArray:%d\n",puzzleArray[row][column]);
+			//printf("grid:%d row:%d column:%d\n",grid,row,column);
 		if(puzzleArray[row][column]>=0 && puzzleArray[row][column]<10){
 			presentNum[x]=puzzleArray[row][column];
 			if(search(presentNum)){
