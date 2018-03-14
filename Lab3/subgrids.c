@@ -2,9 +2,8 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <math.h>
+
 int puzzleArray[9][9];
-
-
 int read(void){
 	int c =0;
 	int counter = 0;
