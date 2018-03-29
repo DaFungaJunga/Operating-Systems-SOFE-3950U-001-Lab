@@ -1,20 +1,17 @@
 CC = clang
 CFLAGS = -Wall -Wextra -std=gnu99
 LFLAGS = 
-LIBS = 
-SOURCES = hostd.c utility.c queue.c sigtrap.c
+LIBS = -lpthread
+SOURCES = banker.c
 OBJECTS = $(subst .c,.o,$(SOURCES))
-EXE = process hostd
+EXE = banker
 .PHONY: clean help
 
 .PHONY: debug
 debug: CFLAGS += -O0 -g3
 debug: $(EXE)
 
-process : sigtrap.o
-	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ 
-
-hostd : hostd.o utility.o queue.o
+banker : banker.o
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@ 
 
 %.o : %.c
